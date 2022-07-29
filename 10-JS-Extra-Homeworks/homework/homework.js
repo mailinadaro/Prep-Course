@@ -14,14 +14,17 @@ function deObjetoAmatriz(objeto){
   //Escribe tu código aquí
 
   //otra opcion: let matrizResultante = Object.entries(objeto);
+  //return matrizResultante;
+
+  // PREGUNTA, HACE FALTA PUSHEAR TODO JUNTO Y COMO?
 
   var nuevaMatriz= [];
 
   for(key in objeto){
-    var matrizInterna = [];
-    matrizInterna.push(objeto.key);
-    matrizInterna.push(objeto['key']);
-    nuevaMatriz.push(matrizInterna);
+   // var matrizInterna = [];
+    //matrizInterna.push(objeto.key);
+   // matrizInterna.push(objeto['key']);
+    //nuevaMatriz.push(matrizInterna);
   }
 
   return nuevaMatriz;
@@ -39,13 +42,15 @@ function numberOfCharacters(string) {
   //3. contruir un objeto vacio
   //4.asignar el strig[i] como key y el acumulador como valor en el objeto
 
-  var numeroCaracteres = 0;
+  ///CORREGIR CON UN IF PARA SI TIENE O NO
+  
+  //var numeroCaracteres = 0;
   var objeto = {};
 
   for(let i = 0; i < string.lenght; i++){
-    objeto.key = string[i];
-    numeroCaracteres = string[i] + numeroCaracteres;
-    objeto['key'] = numeroCaracteres;
+    //objeto.key = string[i];
+   // numeroCaracteres = string[i] + numeroCaracteres;
+    //objeto['key'] = numeroCaracteres;
   }
 
   return objeto;
@@ -62,12 +67,15 @@ function capToFront(s) {
   //usar metodo sort
   // identificar letras mayusculas
   //reordenar mayus y minus
+  // crear dos variables  y acumular dentro y luego concatenar
+
 
   for(let i = 0; i < s.lenght; i ++ ){    
     if(s[i] === s[i].toUpperCase){
-     s.sort();
+    // s.sort();
     }
   }
+  return s;
 }
 
 
@@ -79,15 +87,16 @@ function asAmirror(str) {
   //Escribe tu código aquí
 
   //usar un bucle for decreciente
+//for(let i = str.lenght; i > 0; i--){
+   // var letra = string[i]
+   // return letra; 
+  //}
 
-  for(let i = str.lenght; i > 0; i--){
-    var letra = string[i]
-    return letra; 
-  }
-
-
-} 
-
+let frase = str.split(" ").map(function(palabra){
+  return palabra.split("").reverse().join("")
+}).join(" ");
+ return frase;
+}
 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
@@ -95,21 +104,32 @@ function capicua(numero){
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
 
-  /// REVISAR ////
-  var auxiliar = 0;
 
-  while(numero > 0){
-    var digito = numero % 10;
-    numero = Math.trunc(numero/10);
-    auxiliar = auxiliar * 10 + digito
+  var string = numero.toString;
+  var stringInvertida = string.split("").reverse().join("");
 
-  }
-
-  if(auxiliar = numero){
+  if(string === stringInvertida){
     return 'Es capicua';
   }else{
     return 'No es capicua';
   }
+
+
+  /// REVISAR ////
+  //var auxiliar = 0;
+
+  //while(numero > 0){
+    //var digito = numero % 10;
+    //numero = Math.trunc(numero/10);
+   // auxiliar = auxiliar * 10 + digito
+
+  //}
+
+  //if(auxiliar = numero){
+    //return 'Es capicua';
+  //}else{
+    //return 'No es capicua';
+  //}
 
 }
 
@@ -118,6 +138,7 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+//PROBAR A LA INVERSA DEJANDO LAS letras que NO SON ABC, dentro de una nv variale vacia;
 
   var validacion = cadena[i] === 'a' || cadena[i] === 'b' || cadena[i] || 'c';
 
@@ -141,15 +162,21 @@ function sortArray(arr) {
   //comparar con un for todas las cadenas
   //ordenarlas de menor a mayor
 
-  var palabraMasLarga = "";
-
-  for(let i = 0; i < arr.lenght; i ++ ){
-    if(arr[i].lenght > palabraMasLarga.lenght){
-      palabraMasLarga = arr[i];
+ // var palabraMasLarga = "";
+ var recorrido = true;
+while(recorrido){
+  recorrido = false;
+  for(let i = 0; i < arr.lenght-1; i ++ ){
+    if(arr[i].lenght > arr[i+1].lenght){
+     var  palabraMasLarga = arr[i];
+    // arr[i] = arr[i+1]
+     //arr[i+1] = palabraMasLarga;
+     recorrido = true;
     }
   }
+}
 
-  arr.sort();
+  //arr.sort(y aca que!!??);
 
   return arr;
 }
@@ -165,22 +192,19 @@ function buscoInterseccion(arreglo1, arreglo2){
 
   // iterar ambos arrays
   // comparar elementos y encontrar iguales
-  //crear condicional con
+  //crear condicional 
   //crear un array con elementos en comun o vacio
 
-  var array= [];
+  var nuevoArray= [];
 
-  for(let i = 0; i < arreglo1.lenght; i++){
-    for(let j = 0; j < arreglo2.lenght; j ++){
+  for(let i = 0; i < arreglo1.length; i++){
+    for(let j = 0; j < arreglo2.length; j ++){
       if( arreglo1[i] === arreglo2[j]){
-       array.push();
-       return array;
-      } else {
-        return array;
+       nuevoArray.push(arreglo1[i]);
       }
     }
   }
-
+  return nuevoArray;
 }
 
 
